@@ -1,5 +1,3 @@
-
-const { joinVoiceChannel, createAudioPlayer, NoSubscriberBehavior } = require('@discordjs/voice');
 const { SlashCommandBuilder,} = require("discord.js");
 const { useMasterPlayer } = require("discord-player");
 
@@ -28,7 +26,8 @@ module.exports = {
                 metadata: interaction
               }
             });
-            return interaction.followUp(`${track.title} is qeued`)
+            
+            return interaction.followUp("adding to queue");
           }
           catch(e) {
             return interaction.followUp(`plz try again ${e}`);

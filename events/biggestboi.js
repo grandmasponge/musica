@@ -14,8 +14,11 @@ module.exports = {
 			return;
 		}
 
+		const { useQueue } = require("discord-player");
+        const queue = useQueue(interaction.guild.id);
+
 		try {
-			await command.execute(interaction);
+			await command.execute(interaction, queue);
 		} catch (error) {
 			console.error(`Error executing ${interaction.commandName}`);
 			console.error(error);
