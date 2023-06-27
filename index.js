@@ -50,8 +50,11 @@ player.events.on('playerStart', (queue, track) => {
     queue.metadata.channel.send(`tobozo has started to play ${track.title}`);
 });
 
+player.events.on('emptyChannel', (queue) => {
+    queue.metadata.channel.send(`Leaving voice channel bitchass`);
+});
 player.events.on('emptyQueue', (queue) => {
-	player.destroy();
+	queue.metadata.channel.send(`queue is empty`);
 });
 
 
