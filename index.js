@@ -46,7 +46,6 @@ for (const file of eventFiles) {
 }
 
 player.events.on('playerStart', (queue, track) => {
-    
     queue.metadata.channel.send(`tobozo has started to play ${track.title}`);
 });
 
