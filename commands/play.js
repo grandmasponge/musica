@@ -21,9 +21,8 @@ module.exports = {
           await player.extractors.loadDefault();
 
           try {
-            if (query.substr(0,4) === "https") {
+            if (query.substr(0,4) == "https") {
               const {track} = await player.play(channel, query);
-              
               return await interaction.followUp(`song has been queued`)
             }
 
@@ -37,30 +36,30 @@ module.exports = {
             const title_5 = tracks[4].title;
             const button_1 = new ButtonBuilder()
             .setCustomId("1")
-            .setLabel(`${title_1.substr(0,30)}...`)
+            .setLabel("1")
             .setStyle(ButtonStyle.Primary);
             const button_2 = new ButtonBuilder()
             .setCustomId("2")
-            .setLabel(`${title_2.substr(0,30)}...`)
+            .setLabel("2")
             .setStyle(ButtonStyle.Primary);
             const button_3 = new ButtonBuilder()
             .setCustomId("3")
-            .setLabel(`${title_3.substr(0,30)}...`)
+            .setLabel("3")
             .setStyle(ButtonStyle.Primary);
             const button_4 = new ButtonBuilder()
             .setCustomId("4")
-            .setLabel(`${title_4.substr(0,30)}...`)
+            .setLabel("4")
             .setStyle(ButtonStyle.Primary);
             const button_5 = new ButtonBuilder()
             .setCustomId("5")
-            .setLabel(`${title_5.substr(0,30)}...`)
+            .setLabel("5")
             .setStyle(ButtonStyle.Primary);
             
             const row = new ActionRowBuilder()
 			      .addComponents(button_1, button_2, button_3, button_4, button_5);
 
            const response = await interaction.followUp({
-              content: "the top 5 songs are",
+              content: `the top 5 songs are \n track 1: ${title_1}\n track 2: ${title_2}\n track 3: ${title_3}\n track 4: ${title_4}\n track 5: ${title_5}`,
               components: [row],
 
             })
